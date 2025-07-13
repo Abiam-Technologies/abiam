@@ -2,15 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Products", href: "#products" },
-    { name: "About Us", href: "#about" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Products", href: "/products" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact-us" },
   ];
 
   const products = [
@@ -84,12 +85,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
-                    href={link.href}
+                  <Link 
+                    to={link.href}
                     className="text-primary-foreground/80 hover:text-accent transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -101,12 +102,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {products.map((product, index) => (
                 <li key={index}>
-                  <a 
-                    href="#products"
+                  <Link 
+                    to="/products"
                     className="text-primary-foreground/80 hover:text-accent transition-colors text-sm"
                   >
                     {product}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
