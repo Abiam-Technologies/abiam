@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FeaturedProducts = () => {
   const products = [
@@ -119,9 +120,16 @@ const FeaturedProducts = () => {
         </div>
 
         <div className="text-center">
-          <Button size="lg" variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">
-            View All 17+ Products
-            <ArrowRight className="ml-2 h-5 w-5" />
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="hover:bg-primary hover:text-primary-foreground transition-colors"
+            asChild
+          >
+            <Link to="/products">
+              View All 17+ Products
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
           </Button>
         </div>
       </div>

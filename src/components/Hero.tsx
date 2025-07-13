@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -31,9 +32,12 @@ const Hero = () => {
               size="lg" 
               variant="outline" 
               className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold px-8 py-4 text-lg"
+              asChild
             >
-              <Play className="mr-2 h-5 w-5" />
-              📱 Explore Our Products
+              <Link to="/products">
+                <Play className="mr-2 h-5 w-5" />
+                📱 Explore Our Products
+              </Link>
             </Button>
           </div>
 

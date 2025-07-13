@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navigation = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Products", href: "#products" },
-    { name: "About Us", href: "#about" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/", type: "route" },
+    { name: "Services", href: "#services", type: "anchor" },
+    { name: "Products", href: "/products", type: "route" },
+    { name: "About Us", href: "#about", type: "anchor" },
+    { name: "Blog", href: "#blog", type: "anchor" },
+    { name: "Contact", href: "#contact", type: "anchor" },
   ];
 
   return (
@@ -19,22 +21,36 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0">
             <div className="text-2xl font-bold font-poppins text-primary">
               Abiam<span className="text-accent">Technologies</span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
-              >
-                {item.name}
-              </a>
+              item.type === "route" ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`transition-colors duration-200 font-medium ${
+                    location.pathname === item.href 
+                      ? "text-primary" 
+                      : "text-foreground hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                >
+                  {item.name}
+                </a>
+              )
             ))}
           </nav>
 
@@ -62,14 +78,29 @@ const Header = () => {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-background border-t border-border">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </a>
+                item.type === "route" ? (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={`block px-3 py-2 transition-colors duration-200 ${
+                      location.pathname === item.href
+                        ? "text-primary"
+                        : "text-foreground hover:text-primary"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="block px-3 py-2 text-foreground hover:text-primary transition-colors duration-200"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                )
               ))}
               <div className="px-3 py-2">
                 <Button className="w-full bg-primary-gradient hover:opacity-90 transition-opacity">
