@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Search, Code, Database, Lightbulb, TrendingUp, Camera } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -13,7 +14,7 @@ const Services = () => {
     {
       icon: Code,
       title: "Web & Mobile App Development",
-      description: "Custom-built apps tailored to your business needs — scalable, fast, and designed with users in mind.",
+      description: "Custom-built apps tailored to your business needs scalable, fast, and designed with users in mind.",
       features: ["React/React Native", "Responsive Design", "API Integration"]
     },
     {
@@ -25,7 +26,7 @@ const Services = () => {
     {
       icon: Lightbulb,
       title: "Custom Software Development",
-      description: "Have a unique idea? We'll design, build, and launch it — from MVP to market-ready product.",
+      description: "Have a unique idea? We'll design, build, and launch it from MVP to market-ready product.",
       features: ["MVP Development", "Scalable Architecture", "Full-Stack Solutions"]
     },
     {
@@ -106,12 +107,14 @@ const Services = () => {
               Ready to build something amazing?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Let's turn your idea into an impact-driven product — built for Ethiopia, by Ethiopians.
+              Let's turn your idea into an impact-driven product built for Ethiopia, by Ethiopians.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary-gradient hover:opacity-90 transition-opacity">
-                💬 Book a Free Consultation
-              </Button>
+              <Link to="/contact-us">
+                <Button size="lg" className="bg-primary-gradient hover:opacity-90 transition-opacity">
+                  💬 Book a Free Consultation
+                </Button>
+              </Link>
               <Button size="lg" variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">
                 📨 Contact Our Team
               </Button>

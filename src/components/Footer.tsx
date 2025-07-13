@@ -39,9 +39,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="text-2xl font-bold font-poppins">
-              Abiam<span className="text-accent">Technologies</span>
-            </div>
+            <img 
+              src="/lovable-uploads/19247d4a-ec4e-42cb-a32f-17d6dff49fab.png" 
+              alt="Abiam Technologies" 
+              className="h-8 w-auto"
+            />
             <p className="text-primary-foreground/80 leading-relaxed">
               Building the future of Ethiopia digitally with innovative, locally-relevant digital platforms.
             </p>

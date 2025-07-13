@@ -22,9 +22,11 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <div className="text-2xl font-bold font-poppins text-primary">
-              Abiam<span className="text-accent">Technologies</span>
-            </div>
+            <img 
+              src="/lovable-uploads/c1a6bff1-9a9c-431a-b35e-724ce2942c50.png" 
+              alt="Abiam Technologies" 
+              className="h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -56,9 +58,11 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button className="bg-primary-gradient hover:opacity-90 transition-opacity">
-              Book Free Consultation
-            </Button>
+            <Link to="/contact-us">
+              <Button className="bg-primary-gradient hover:opacity-90 transition-opacity">
+                Book Free Consultation
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -103,9 +107,11 @@ const Header = () => {
                 )
               ))}
               <div className="px-3 py-2">
-                <Button className="w-full bg-primary-gradient hover:opacity-90 transition-opacity">
-                  Book Free Consultation
-                </Button>
+                <Link to="/contact-us" onClick={() => setIsMenuOpen(false)}>
+                  <Button className="w-full bg-primary-gradient hover:opacity-90 transition-opacity">
+                    Book Free Consultation
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

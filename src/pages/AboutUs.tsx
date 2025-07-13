@@ -16,7 +16,7 @@ const AboutUs = () => {
     {
       icon: Wrench,
       title: "🔧 Built for Ethiopia",
-      description: "We design every solution with local realities in mind — from offline support to multilingual systems and local payment integration."
+      description: "We design every solution with local realities in mind from offline support to multilingual systems and local payment integration."
     },
     {
       icon: Globe,
@@ -131,7 +131,7 @@ const AboutUs = () => {
               🎯 Why Choose Abiam
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're not just another tech company — we're your strategic partner in digital transformation
+              We're not just another tech company, we're your strategic partner in digital transformation
             </p>
           </div>
 

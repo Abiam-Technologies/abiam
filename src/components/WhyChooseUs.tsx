@@ -6,7 +6,7 @@ const WhyChooseUs = () => {
     {
       icon: MapPin,
       title: "Built for Ethiopia",
-      description: "We design every solution with local realities in mind — from offline support to multilingual systems and local payment integration.",
+      description: "We design every solution with local realities in mind from offline support to multilingual systems and local payment integration.",
       gradient: "bg-accent-gradient"
     },
     {

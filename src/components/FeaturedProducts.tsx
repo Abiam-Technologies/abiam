@@ -9,7 +9,7 @@ const FeaturedProducts = () => {
     {
       name: "Mela360°",
       subtitle: "Smart School Management System",
-      description: "Simplify school operations with a platform designed for Ethiopian educators. Handle grading, fees, communication, and more — all in one place.",
+      description: "Simplify school operations with a platform designed for Ethiopian educators. Handle grading, fees, communication, and more all in one place.",
       industry: "Education",
       features: ["Student Management", "Fee Tracking", "Parent Communication", "Offline Support"],
       gradient: "bg-primary-gradient",

@@ -5,13 +5,17 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ExternalLink, ArrowRight, Search, Filter } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ProductModal from "@/components/ProductModal";
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedIndustry, setSelectedIndustry] = useState("all");
   const [selectedUseCase, setSelectedUseCase] = useState("all");
+  const [selectedProduct, setSelectedProduct] = useState<typeof products[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const products = [
     {
@@ -20,6 +24,7 @@ const Products = () => {
       subtitle: "School Management System",
       emoji: "🏫",
       purpose: "Streamlines school operations across Ethiopia.",
+      description: "Streamlines school operations across Ethiopia.",
       industry: "Education",
       useCase: "Management",
       features: [
@@ -31,7 +36,8 @@ const Products = () => {
         "Offline sync & multilingual support"
       ],
       targetUsers: "Schools (private & public), school owners, admins",
-      gradient: "bg-primary-gradient"
+      gradient: "bg-primary-gradient",
+      textColor: "text-white"
     },
     {
       id: 2,
@@ -466,11 +472,19 @@ const Products = () => {
                   </div>
                   
                   <div className="flex gap-2 pt-4">
-                    <Button variant="outline" size="sm" className="flex-1">
+                    <Button size="sm" className="flex-1 bg-primary-gradient hover:opacity-90">
                       Demo
                       <ExternalLink className="ml-2 h-4 w-4" />
                     </Button>
-                    <Button size="sm" className="flex-1 bg-primary-gradient hover:opacity-90">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="flex-1"
+                      onClick={() => {
+                        setSelectedProduct(product);
+                        setIsModalOpen(true);
+                      }}
+                    >
                       Learn More
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -513,9 +527,11 @@ const Products = () => {
               Choose from our ready-made solutions or let us build something custom for your unique needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary-gradient hover:opacity-90 transition-opacity">
-                🚀 Book a Free Consultation
-              </Button>
+              <Link to="/contact-us">
+                <Button size="lg" className="bg-primary-gradient hover:opacity-90 transition-opacity">
+                  🚀 Book a Free Consultation
+                </Button>
+              </Link>
               <Button size="lg" variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">
                 📞 Contact Sales Team
               </Button>
@@ -525,6 +541,15 @@ const Products = () => {
       </section>
 
       <Footer />
+      
+      <ProductModal
+        product={selectedProduct}
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false);
+          setSelectedProduct(null);
+        }}
+      />
     </div>
   );
 };

@@ -12,22 +12,24 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-poppins mb-6 leading-tight">
-            Build the Future of Ethiopia —{" "}
+            Build the Future of Ethiopia{" "}
             <span className="text-accent">Digitally</span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-            Abiam Technologies delivers smart, scalable, and locally-built digital platforms — 
-            from education to eCommerce — empowering businesses, schools, and startups to grow with purpose.
+            Abiam Technologies delivers smart, scalable, and locally-built digital platforms 
+            from education to eCommerce empowering businesses, schools, and startups to grow with purpose.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-4 text-lg">
-              🚀 Book a Free Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <Link to="/contact-us">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-4 text-lg">
+                🚀 Book a Free Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
             <Button 
               size="lg" 
               variant="outline" 

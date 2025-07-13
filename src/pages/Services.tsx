@@ -38,7 +38,7 @@ const Services = () => {
     {
       id: 2,
       title: "Web & Mobile App Development",
-      description: "Custom-built apps tailored to your business needs — scalable, fast, and designed with users in mind.",
+      description: "Custom-built apps tailored to your business needs scalable, fast, and designed with users in mind.",
       icon: Smartphone,
       detailedDescription: "Create powerful, user-friendly applications that work seamlessly across all devices. Our development team specializes in modern frameworks and technologies, ensuring your applications are fast, secure, and built to scale. From concept to deployment, we handle every aspect of the development process.",
       offerings: [
@@ -68,7 +68,7 @@ const Services = () => {
     {
       id: 4,
       title: "Custom Software Development",
-      description: "Have a unique idea? We'll design, build, and launch it — from MVP to market-ready product.",
+      description: "Have a unique idea? We'll design, build, and launch it from MVP to market-ready product.",
       icon: Code,
       detailedDescription: "Turn your innovative ideas into reality with custom software solutions. Whether you need an MVP to test your concept or a full-scale enterprise application, our team has the expertise to bring your vision to life. We use agile methodologies to ensure rapid development and continuous improvement.",
       offerings: [
