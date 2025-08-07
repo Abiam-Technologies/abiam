@@ -17,6 +17,7 @@ import {
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactUs = () => {
   const { toast } = useToast();
@@ -35,7 +36,7 @@ const ContactUs = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -48,23 +49,49 @@ const ContactUs = () => {
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Message Sent Successfully!",
-      description: "We'll get back to you within 24 hours.",
-    });
+    try {
+      // Submit to Supabase
+      const { error } = await supabase
+        .from('contacts')
+        .insert({
+          help_type: formData.helpType,
+          full_name: formData.fullName,
+          role: formData.role,
+          company: formData.company,
+          phone: formData.phone,
+          email: formData.email,
+          services: formData.services,
+          message: formData.message
+        });
 
-    // Reset form
-    setFormData({
-      helpType: "",
-      fullName: "",
-      role: "",
-      company: "",
-      phone: "",
-      email: "",
-      services: "",
-      message: ""
-    });
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Message Sent Successfully!",
+        description: "We'll get back to you within 24 hours.",
+      });
+
+      // Reset form
+      setFormData({
+        helpType: "",
+        fullName: "",
+        role: "",
+        company: "",
+        phone: "",
+        email: "",
+        services: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    }
   };
 
   const contactInfo = [
