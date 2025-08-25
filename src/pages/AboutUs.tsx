@@ -41,14 +41,14 @@ const AboutUs = () => {
   ];
 
   const trustedCompanies = [
-    { name: "Ethiopian Airlines", logo: "🛫" },
-    { name: "Commercial Bank of Ethiopia", logo: "🏦" },
-    { name: "Ethio Telecom", logo: "📱" },
-    { name: "Ethiopian Electric Power", logo: "⚡" },
-    { name: "Awash Bank", logo: "💳" },
-    { name: "Dashen Bank", logo: "🏛️" },
-    { name: "Ministry of Education", logo: "🎓" },
-    { name: "Addis Ababa University", logo: "🏫" }
+    "/lovable-uploads/1b115dea-5b33-42f2-b0d8-ebee345d90bd.png", // BET-IT
+    "/lovable-uploads/08fb02d7-1320-41ff-902a-614e46a12f56.png", // Mama's Kitchen
+    "/lovable-uploads/d9232558-1e3e-4457-9be7-2b8871d73caf.png", // Habesha Ride
+    "/lovable-uploads/0fd619da-5086-4a84-8fdf-03b97a4b0967.png", // Ashagari
+    "/lovable-uploads/668c963e-e11c-4396-9f07-4a2f9dba4892.png", // UA
+    "/lovable-uploads/c2749751-262a-481d-8bfe-b363b767e1c1.png", // AMG Coffee Export
+    "/lovable-uploads/4892ddd4-4e85-4de5-9e67-1974f3e57047.png", // Kebena General Trading
+    "/lovable-uploads/689f1059-dd59-4cdd-ad3b-1f53cb3abe54.png"  // Holland Dairy
   ];
 
   return (
@@ -170,17 +170,47 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {trustedCompanies.map((company, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-0 text-center">
-                  <div className="text-4xl mb-3">{company.logo}</div>
-                  <h3 className="font-semibold text-sm text-muted-foreground">
-                    {company.name}
-                  </h3>
-                </CardContent>
-              </Card>
-            ))}
+          {/* Infinite Scrolling Carousel */}
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex gap-8 animate-scroll-left motion-reduce:animate-none"
+              style={{
+                width: 'calc(200% + 2rem)',
+              }}
+            >
+              {/* First set of logos */}
+              {trustedCompanies.map((logoSrc, index) => (
+                <div 
+                  key={index}
+                  className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 lg:w-48 lg:h-28 flex items-center justify-center
+                             grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300
+                             hover:scale-105 focus-within:grayscale-0 focus-within:opacity-100"
+                >
+                  <img 
+                    src={logoSrc}
+                    alt=""
+                    className="max-w-full max-h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {trustedCompanies.map((logoSrc, index) => (
+                <div 
+                  key={`duplicate-${index}`}
+                  className="flex-shrink-0 w-32 h-20 md:w-40 md:h-24 lg:w-48 lg:h-28 flex items-center justify-center
+                             grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300
+                             hover:scale-105 focus-within:grayscale-0 focus-within:opacity-100"
+                >
+                  <img 
+                    src={logoSrc}
+                    alt=""
+                    className="max-w-full max-h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
