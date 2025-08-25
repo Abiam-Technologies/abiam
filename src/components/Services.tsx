@@ -115,9 +115,11 @@ const Services = () => {
                   💬 Book a Free Consultation
                 </Button>
               </Link>
-              <Button size="lg" variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">
-                📨 Contact Our Team
-              </Button>
+              <Link to="/contact-us">
+                <Button size="lg" variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">
+                  📨 Contact Our Team
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
