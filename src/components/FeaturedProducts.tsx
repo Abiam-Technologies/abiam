@@ -109,10 +109,19 @@ const FeaturedProducts = () => {
                     Demo
                     <ExternalLink className="ml-2 h-4 w-4" />
                   </Button>
-                  <Button size="sm" className="flex-1 bg-primary-gradient hover:opacity-90">
-                    Learn More
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  {product.name === "Mela360°" ? (
+                    <Button size="sm" className="flex-1 bg-primary-gradient hover:opacity-90" asChild>
+                      <a href="https://mela360-school-managment-system.netlify.app/" target="_blank" rel="noopener noreferrer">
+                        Learn More
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                  ) : (
+                    <Button size="sm" className="flex-1 bg-primary-gradient hover:opacity-90">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
